@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth transitions for everything */
+body, button, .product-card {
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4);
+  background-size: 600% 600%;
+  animation: backgroundMove 10s ease infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Animated background using keyframes */
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+/* Pulse animation for CTA button */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Navigation */
+nav {
+  background: #111;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+.nav-menu li:hover {
+  transform: rotate(5deg);
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #eee;
+  border-top: 6px solid #1d1d1d;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  margin: 20px auto;
+}
+
+/* Keyframe for spinning */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Product Cards Section */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+/* Product Card Style */
+.product-card {
+  width: 200px;
+  height: 250px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(100px);
+  opacity: 0;
+  animation: slideIn 1s forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover animation with scale and color transition */
+.product-card:hover {
+  background-color: #ffe0e0;
+  transform: scale(1.05);
+}
+
+/* Decorative skew element */
+.hero::after {
+  content: '';
+  display: block;
+  height: 10px;
+  background: #fff;
+  transform: skewY(-3deg);
+  transform-origin: left;
+}
+
+/* Add animation-play-state on hover */
+.cta:hover {
+  animation-play-state: paused;
+}

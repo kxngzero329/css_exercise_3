@@ -1,0 +1,140 @@
+/* Reset and Basic Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ccc;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Hero Section with Animated Background */
+.hero {
+  height: 100vh;
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  animation: backgroundMove 10s ease infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navigation */
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  animation: slideDown 1s ease forwards;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+.nav a:hover {
+  color: yellow;
+}
+
+/* Slide-in animation */
+@keyframes slideDown {
+  from { transform: translateY(0); opacity: 0; }
+  to { transform: translateY(-200px); opacity: 1; }
+}
+
+/* CTA Button Pulse */
+.cta-button {
+  background: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background: #3498db;
+  transform: scale(1.1);
+  animation-play-state: paused;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Products */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1.5rem;
+  height: 250px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+  transform-origin: top left;
+  animation: slideIn 1s ease forwards;
+}
+
+.product-card:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  opacity: 0.9;
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Decorative skewed element */
+.product-card::before {
+  content: '';
+  display: block;
+  margin-top: 40%;
+  height: 10%;
+  background: #3498db;
+  transform: skewX(-20deg);
+}
+
+/* Add delay to cards */
+.product-card:nth-child(1) { animation-delay: 0.2s; }
+.product-card:nth-child(2) { animation-delay: 0.4s; }
+.product-card:nth-child(3) { animation-delay: 0.6s; }
+.product-card:nth-child(4) { animation-delay: 0.8s; }
+.product-card:nth-child(5) { animation-delay: 1s; }
+.product-card:nth-child(6) { animation-delay: 1.2s; }
